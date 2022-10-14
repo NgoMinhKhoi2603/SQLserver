@@ -19,7 +19,7 @@ create table Goods(
 	Price int not null
 );
 
-create table OrderGood(
+create table OrderGoods(
 	OrderCode int foreign key references Orders(Code),
 	GoodId int foreign key references Goods(Id)
 );
