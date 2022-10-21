@@ -14,11 +14,12 @@ select * from NHACUNGCAP where MaNhaCC in
 		or (DongXe in (select DongXe from DONGXE where HangXe in ('KIA')) and MaMP in (select MaMP from MUCPHI where DonGia = 20000)));
 
 -- 5
-select * from NHACUNGCAP order by TenNhaCC asc;
+select * from NHACUNGCAP order by TenNhaCC asc,MaSoThue desc;
 select * from NHACUNGCAP order by MaSoThue desc;
 
 -- 6
-select count(MaNhaCC) from DANGKYCUNGCAP where MaNhaCC in (select MaNhaCC from NHACUNGCAP where TenNhaCC in ('Cty TNHH Toàn Pháp')) and NgayBatDauCungCap >= '2015-11-20';
+
+select MaNhaCC,count(MaNhaCC) from DANGKYCUNGCAP where NgayBatDauCungCap >= '2015-11-20' group by MaNhaCC;
 
 -- 7
 select distinct HangXe from DONGXE;
